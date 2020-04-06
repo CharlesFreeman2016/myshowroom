@@ -1,0 +1,37 @@
+{% extends "users/base.html" %}
+{% block content %}
+{% load static %}
+<div class="login-content">
+	<form method="POST">
+		{% csrf_token %}
+		<img src="{% static 'users/img/avatar.svg' %}">
+		<h2 class="title">Welcome</h2>
+		<div class="errors">
+			{% if form.errors %}
+				<p>Incorrect login details</p>
+			{% endif %}
+		</div>
+
+		<div class="input-div one">
+		   <div class="i">
+				<i class="fas fa-user"></i>
+		   </div>
+		   <div class="div">
+				{{ form.username }}
+		   </div>
+		</div>
+		<div class="input-div pass">
+		   <div class="i">
+				<i class="fas fa-lock"></i>
+		   </div>
+		   <div class="div">
+				{{ form.password}}
+		   </div>
+		</div>
+		<a  class="account" href="#">Forgot Password?</a>
+		<a class="account" href="{% url 'register' %}">Create account</a>
+		<input type="submit" class="btn" value="Login">
+
+	</form>
+</div>
+{% endblock content %}

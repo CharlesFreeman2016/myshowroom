@@ -1,0 +1,10 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<article>
+    <div class="logbox">
+        <h1>You have been logged out</h1>
+        <p>click on the button to login</p>
+        <button type="submit"><a href="{% url 'login' %}">Login</a></button>
+    </div>
+</article>
+{% endblock content %}

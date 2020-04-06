@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>MyShowRoom - {{ title }}</title>
+    {% else %}
+    <title>MyShowRoom</title>
+    {% endif %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'users/css/design.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/aa853139b2.js" crossorigin="anonymous"></script></head>
+<body>
+
+<div class="main">
+    <img class="wave" src="{% static 'users/img/wave.png' %}">
+    <div class="container">
+        <div class="img">
+            <ul>
+                <li> <img src="{% static 'users/img/post.svg' %}" class="slideshow-img"></li>
+                <li> <img src="{% static 'users/img/friends.svg' %}" class="slideshow-img"></li>
+                 <li> <img src="{% static 'users/img/travel_mode.svg' %}" class="slideshow-img"></li>
+                 <li> <img src="{% static 'users/img/distancing.svg' %}" class="slideshow-img"></li>
+            </ul>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static 'users/js/action.js' %}"></script>
+</body>
+</html>

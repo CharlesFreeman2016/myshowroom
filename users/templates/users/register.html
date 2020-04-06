@@ -1,0 +1,53 @@
+{% extends "users/base.html" %}
+{% block content %}
+{% load static %}
+<div class="signup-content">
+    <form method="POST">
+        {% csrf_token %}
+            <img src="{% static 'users/img/avatar.svg' %}">
+            <h2 class="title">Register</h2>
+            <div class="errors">
+                {% if form.errors %}
+                    {{ form.errors}}
+                {% endif %}
+            </div>
+            <div class="input-form">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+               </div>
+                <div class="div">
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="input-form">
+                <div class="i">
+                    <i class="fas fa-envelope"></i>
+               </div>
+                <div class="div">
+                     {{ form.email }}
+                </div>
+            </div>
+            <div class="input-form">
+                <div class="i">
+                    <i class="fas fa-user-lock"></i>
+               </div>
+                <div class="div">
+                    {{ form.password1 }}
+                </div>
+            </div>
+            <div class="input-form">
+                <div class="i">
+                    <i class="fas fa-user-lock"></i>
+               </div>
+                <div class="div">
+                    {{ form.password2 }}
+                </div>
+            </div>
+             <a class="account" href="{% url 'login' %}">Sign In</a>
+        <div class="btn">
+            <button class="btn signup" type="submit">Sign Up</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
