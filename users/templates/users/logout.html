@@ -1,10 +1,14 @@
-{% extends "shop/base.html" %}
+{% extends "users/base.html" %}
 {% block content %}
-<article>
-    <div class="logbox">
-        <h1>You have been logged out</h1>
-        <p>click on the button to login</p>
-        <button type="submit"><a href="{% url 'login' %}">Login</a></button>
-    </div>
-</article>
+<div class="signup-content">
+    <form action="{% url 'login' %}">
+        {% csrf_token %}
+        <h2>You have been logged out</h2>
+
+        <div class="btn">
+            <button class="btn signup" type="submit"> press to Login</button>
+        </div>
+
+    </form>
+</div>
 {% endblock content %}

@@ -32,21 +32,47 @@ body{
 	align-items: center;
 }
 .errors{
-	color: rgb(184, 39, 39);
-	background: lightpink;
+	color: red;
+	border-color: red;
 	font-size: 20px;
 	font-family: 'Times New Roman', Times, serif;
-	border-color: grey;
+
+	text-align: left;
+	
 }
 .errors li{
 	display: block;
 }
 
-.login-content, .signup-content{
+.login-content, .signup-content, .done{
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
+}
+.log{
+	align-items: center;
+	color: red;
+
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+
+}
+.help{
+	align-items: left;
+	color: #212121;
+	text-align: left;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+}
+.google{
+	justify-content: space-around;
+	align-items: center;
+	display: flex;
+}
+.google img{
+	width: 30px;
+	height: 30px;
 }
 
 .img img{
@@ -61,8 +87,18 @@ body{
 li{
 	list-style: none;
 }
+.done h2{
+	top: 80mm;
+	position: absolute;
+	display: flex;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+}
 form{
 	width: 360px;
+}
+small{
+	color: grey;
 }
 
 .login-content img, .signup-content img{
@@ -114,7 +150,10 @@ form{
 	font-size: 18px;
 	transition: .3s;
 }
-
+#reset, #logout{
+	color: whitesmoke;
+	font-size: 25px;
+}
 .input-div:before, .input-div:after{
 	content: '';
 	position: absolute;
@@ -175,12 +214,23 @@ form{
 }
 
 a{
-	display: block;
-	text-align: right;
+	
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
 	transition: .3s;
+}
+.account{
+
+	justify-content: space-around;
+	align-items: flex-end;
+
+
+}
+.acc{
+	justify-content: space-around;
+
+	display: flex;
 }
 
 a:hover{

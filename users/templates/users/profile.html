@@ -1,8 +1,31 @@
 {% extends "shop/base.html" %}
 {% block content %}
 <div class="profile">
-    <img src="{{ user.profile.image.url}}" alt="">
+    <img class="circle  responsive-img z-depth-0" src="{{ user.profile.image.url}}" alt="">
     <h2>{{ user.username }}</h2>
-    <p>{{user.email}}</p>
+    {% if user.email %}
+        <p>{{user.email}}</p>
+    {% else %}
+        <div class="errors">
+            <p>There is no email present for this account please provide one</p>
+        </div>
+    {% endif %}
+</div>
+<div class="update-profile">
+    	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h4 class="title">Update profile</h4>
+
+		<div class="input-div one">
+		   <div class="div">
+				{{ u_form }}
+		   </div>
+		</div>
+		<div class="input-div pass">
+				{{ p_form}}
+		   </div>
+		</div>
+		<input type="submit" class="btn" value="update">
+	</form>
 </div>
 {% endblock content %}

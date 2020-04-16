@@ -1,8 +1,11 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-}
+$(document).ready(function(){
+    $('.sidenav').sidenav();
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+})
+$(document).ready(function(){
+    $(".dropdown-trigger").dropdown();
+})
+$(document).ready(function () {
+    $(".dropdown-trigger1").dropdown();
+})
 

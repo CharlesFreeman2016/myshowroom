@@ -1,4 +1,6 @@
 {% extends "users/base.html" %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% block content %}
 {% load static %}
 <div class="login-content">
@@ -6,7 +8,14 @@
 		{% csrf_token %}
 		<img src="{% static 'users/img/avatar.svg' %}">
 		<h2 class="title">Welcome</h2>
-		<div class="errors">
+		<div class="messages">
+			{% if messages %}
+				{% for message in messages %}
+					<h3>{{ message }}</h3>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="log">
 			{% if form.errors %}
 				<p>Incorrect login details</p>
 			{% endif %}
@@ -28,8 +37,10 @@
 				{{ form.password}}
 		   </div>
 		</div>
-		<a  class="account" href="#">Forgot Password?</a>
-		<a class="account" href="{% url 'register' %}">Create account</a>
+
+		<a class="google" href="{% provider_login_url 'google' %}"><img class="small" src="{% static 'users/img/google.svg' %}" alt="Google"></a>
+		<a  class="account" href="{% url 'password_reset' %}">Forgot Password?</a>
+		<a class="acc" href="{% url 'register' %}">Create account</a>
 		<input type="submit" class="btn" value="Login">
 
 	</form>

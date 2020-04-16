@@ -1,4 +1,21 @@
 {% extends 'shop/base.html' %}
+{% block extratop %}
+    <div class="responsive-search-bar">
+         <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="responsive-input-field col s7">
+                    <label for="base-search"></label>
+                    <input type="search" placeholder="   SEARCH FOR PRODUCTS HERE" id="base-search" required >
+                    <button type="submit" class="right" id="base-btn"><i class="material-icons">search</i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </div>
+{% endblock %}
 {% block content %}
-<h1>HOme Page</h1>
+
+<p>Hi {{ user.username}}</p>
+
 {% endblock %}
