@@ -1,121 +1,129 @@
-  <!DOCTYPE html>
-  <html>
-      <head>
-          <!--Import Google Icon Font-->
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          {% load static %}
-          <meta charset="UTF-8">
-          {% if title %}
-          <title>MyShowRoom - {{ title }}</title>
-          {% else %}
-          <title>MyShowRoom</title>
-          {% endif %}
-          <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
-          <!--Let browser know website is optimized for mobile-->
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <!-- Compiled and minified CSS -->
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% load static %}
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>MyShowRoom - {{ title }}</title>
+    {% else %}
+    <title>MyShowRoom</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-      </head>
+</head>
 
-    <body>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">Payment</a></li>
-          <li><a href="#!">Chat</a></li>
-          <li><a href="#!">Product</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-              <!-- Dropdown Structure -->
-        <ul id="dropdown2" class="dropdown-content">
-          <li><a href="#!">Payment</a></li>
-          <li><a href="#!">Sell</a></li>
-          <li><a href="#!">Product</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-      <nav class="nav-extended teal accent-3">
-          <div class="">
-            <div class="nav-wrapper">
-                <ul class="hide-on-large-only right">
-               <li><a id="msg" href="#"  onclick="M.toast({html: 'No new message', class:'top'})" class="btn-floating teal accent-3 darken-4 z-depth-0 "><i class="material-icons">notifications</i></a></li>
-                  <li><span class="badge black-text red accent-2 new ">0</span></li>
-                    </ul>
-              <a href="#" class="brand-logo">MyShowRoom</a>
-                </ul>
-                <div class="">
-                    <ul class="hide-on-med-and-small left">
-                        <form action="#product" method="post" >
-                            {% csrf_token %}
-                            <input type="search" class="browser-default " placeholder="Search for products or Sellers">
-                              <button class="btn-floating btn-medium waves-light left" id="btn" type="submit" name="action">
-                                <i id="ic" class="material-icons ">search</i>
-                              </button>
-                        </form>
-                    </ul>
-                </div>
+<body>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">Payment</a></li>
+    <li><a href="#!">Chat</a></li>
+    <li><a href="#!">Product</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+<!-- Dropdown Structure -->
+<ul id="dropdown2" class="dropdown-content">
+    <li><a href="#!">Payment</a></li>
+    <li><a href="#!">Sell</a></li>
+    <li><a href="#!">Product</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+<nav class="nav-extended teal accent-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <ul class="hide-on-large-only right">
+                <li><a id="msg" href="#" onclick="M.toast({html: 'No new message', class:'top'})"
+                       class="btn-floating teal accent-3 darken-4 z-depth-0 "><i
+                        class="material-icons ">notifications</i></a></li>
+                <li><span class="badge black-text red accent-2 new ">0</span></li>
+            </ul>
+            <a href="{% url 'shop-home' %}" class="brand-logo">MyShowRoom</a>
+            </ul>
 
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
 
                 <li><a href="{% url 'shop-home' %}">Home</a></li>
 
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-trigger1" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a href="{% url 'profile' %}">hi {{ user.username }}<i class="material-icons left">person_outline</i></a></li>
+                <li><a class="dropdown-trigger1" href="#!" data-target="dropdown2">Account<i
+                        class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="{% url 'profile' %}">hi {{ user.username }}<i
+                        class="material-icons left">person_outline</i></a></li>
 
                 {% else %}
-                <li><a class="dropdown-trigger1 tab disabled" href="{% url 'register' %}" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger1 tab disabled" href="{% url 'register' %}" data-target="dropdown2">Account<i
+                        class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
-                <li><a href="#" onclick="M.toast({html: 'No new message'})" class="btn-floating teal accent-3  darken-4 z-depth-0 show-on-medium-and-down"><i class="material-icons">notifications</i></a></li>
-                  <li><span class="badge black-text red accent-2 new">0</span></li>
-              </ul>
+                <li><a href="#" onclick="M.toast({html: 'No new message'})"
+                       class="btn-floating teal accent-3  darken-4 z-depth-0 show-on-medium-and-down"><i
+                        class="material-icons">notifications</i></a></li>
+                <li><span class="badge black-text red accent-2 new">0</span></li>
+            </ul>
 
-            </div>
-                <div class="nav-content hide-on-med-and-dow container">
-                <ul class="tabs tabs-fixed-width tab-demo darken-4 z-depth-0 teal accent-3  white-text hide-on-med-and-down">
-               <li ><a href="">Map</a></li>
-                <li ><a  href="">Today's Deals</a></li>
-                <li ><a href="#">Sell</a></li>
-                <li ><a href="#">Products</a></li>
-              </div>
+        </div>
+        <div class="nav-content hide-on-med-and-dow container">
+            <ul class="tabs tabs-fixed-width tab-demo darken-4 z-depth-0 teal accent-3  white-text hide-on-med-and-down">
+                <li><a href="">Map</a></li>
+                <li><a href="">Today's Deals</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">Products</a></li>
+        </div>
 
-          </div>
-      </nav>
-        {% block extratop %}{% endblock %}
+    </div>
+</nav>
 
-      <ul class="sidenav" id="mobile-demo" >
-          <li><a href="{% url 'shop-home' %}">Home</a></li>
-        {% if user.is_authenticated %}
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="{% url 'profile' %}">Profile</a></li>
-        {% else %}
-        <li><a href="{% url 'register' %}">Register</a></li>
-        <li><small>hello</small><a href="{% url 'login' %}">Login</a></li>
-        {% endif %}
-            <li><a href="#test1">Map</a></li>
-            <li ><a class="active" href="#test2">Todays Deal</a></li>
-            <li ><a href="#test3">Sell</a></li>
-            <li ><a href="#test4">Products</a></li>
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{% url 'shop-home' %}">Home</a></li>
+    {% if user.is_authenticated %}
+    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a>
+    </li>
+    <li><a href="{% url 'profile' %}">Profile</a></li>
+    {% else %}
+    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><small>hello</small><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+    <li><a href="#test1">Map</a></li>
+    <li><a class="active" href="#test2">Todays Deal</a></li>
+    <li><a href="#test3">Sell</a></li>
+    <li><a href="#test4">Products</a></li>
 
-      </ul>
+</ul>
 
-
-      <div class="container body">
+<div class="container">
+    <form id="frmsearch" class="" method="get" >
+        {% csrf_token %}
+        <input class="search2 browser-default" id="txtSearch" type="text" name="serach_bar" maxlength="255"
+               placeholder="Search for products here"/>
+          <button class="btn-floating pulse right btn-large  teal accent-3" type="submit" name="action" id="btn">
+            <i class="material-icons ">search</i>
+          </button>
+    </form>
+</div>
+<div class="container">
+    <div class="main">
         {% if messages %}
-            {% for message in messages %}
-                 <p>{{ message }}</p>
-            {% endfor %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
         {% endif %}
 
         {% block content %}{% endblock %}
-      </div>
+    </div>
+</div>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script src="https://code.jquery.com/jquery-3.5.0.min.js" ></script>
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="{% static 'shop/js/action.js' %}"></script>
-    </body>
-  </html>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{% static 'shop/js/action.js' %}"></script>
+</body>
+</html>

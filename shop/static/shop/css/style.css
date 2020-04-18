@@ -6,41 +6,96 @@ nav .badge{
     top: 20px;
     right: 30px;   
 }
-#btn{
-     bottom: 15mm;
+.search2{
+     left: 100px; 
+     width: 50vw; 
+     height: 50px;
+     top: 1em;
+     border-radius: 29px;
+     opacity: 0.5;
+     background: gray;
+     border-color: rgb(51, 228, 95);
      position: relative;
-     left: 65mm;
+     display: grid;
+     padding-left: 20px;
+     font-size: 20px;
+     font-family: sans-serif;
 }
-.search{
-     position: center;
+#btn{
+     display: grid;
+     position: relative;
+     align-items: center;
+     right: 16em;
+     top: -36px;
+
+}
+
+.main{
+     top: 5em;
+     position: relative;  
 }
 
 
 
 
-
-@media (min-width:320px)  {
+@media (min-width:320px) {
      /* smartphones, iPhone, portrait 480x320 phones */ 
+     #btn{
+     right: 3em;
+     }    
+     .search2{
+     left: 60px; 
+     width: 60vw;
 
+     }
+     nav .badge{
+          right: 0;  
+     }
+     #msg{
+          left: 4em;
+     }
+     #msg:focus{
+          opacity: 0.1;
+     }
 
 }
 @media (min-width:481px){
      /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
-    
+     nav .badge{
+          right: 30px;  
+     }
+     #msg{
+          left: 0;
+     }  
+     .search2{
+     left: 80px; 
+     width: 65vw;
+
+     }
+
 }
 @media (min-width:641px)  {
      /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
 
 }
+@media (min-width:721px) {
+     #btn{
+     right: 4em;
+     } 
+}
 @media (min-width:961px)  {
      /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-
+  
 }
 @media (min-width:1025px) {
      /* big landscape tablets, laptops, and desktops */ 
-
+     #btn{
+     right: -3em;
+     }    
 }
 @media (min-width:1281px) {
      /* hi-res laptops and desktops */
-    
+     #btn{
+     right: -1em;
+     }    
 }
