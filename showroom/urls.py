@@ -19,11 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 from users import views as user_views
+from shop.views import ProductsListView, product_list_view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls')),
+    path('products/', ProductsListView.as_view()),
+    path('products-fb/', product_list_view),
     path('accounts/', include('allauth.urls')),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
